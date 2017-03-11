@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+//apply plugin:'com.wuba.bangjob.dynamicReport'
+
+//dynamicreport{
+//    includePackage = ["com/wuba/bangjob"]
+//    excludeClass = []
+//    excludePackage = ["com/wuba/bangjob/common/rx",
+//                      "com/wuba/bangjob/common/mipush",
+//                      "com/wuba/bangjob/common/pay",
+//                      "com/wuba/bangjob/common/trace",
+//                      "com/wuba/bangjob/common/utils",
+//                      "com/wuba/bangjob/common/dynamicreport",
+//                      "com/wuba/bangjob/common/model",
+//                      "com/wuba/bangjob/wxapi",
+//                      "com/wuba/bangjob/job/model/vo",
+//                      "com/wuba/bangjob/business/model/vo",
+//                      "com/wuba/bangjob/common/view/adapter",
+//                      "com/wuba/bangjob/job/adapter"];
+//    reportOutputPath = "/Users/huangjinxin/work/aopout"
+//}
+
+repositories {
+//    maven {
+//        url 'http://artifactory.58corp.com:8081/artifactory/android-public'
+//    }
+//    maven {
+//        url 'http://maven.58corp.com:8058/nexus/content/groups/public'
+//    }
+//    maven {
+//        url 'http://maven.58corp.com:8058/nexus/content/repositories/thirdparty'
+//    }
+//    maven {
+//        url 'http://maven.58corp.com:8058/nexus/content/groups/public-snapshots'
+//    }
+
+    mavenCentral()
+}
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23'
+    defaultConfig {
+        applicationId "longtianlove.newbangjob"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        multiDexKeepProguard file('multiDexKeep.pro')
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    //引入Freso
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    // 仅支持 WebP 静态图，需要添加
+    compile 'com.facebook.fresco:webpsupport:0.12.0'
+
+    compile 'io.reactivex:rxandroid:1.2.0'
+
+
+}

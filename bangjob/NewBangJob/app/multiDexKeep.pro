@@ -1,0 +1,6 @@
+-keep class com.wuba.bangjob.common.model.alarm.**
+-keep class com.wuba.cf.**
+-keep class android.support.v4.view.**
+-keep class android.support.v4.app.**
+-keep class android.support.v4.widget.**
+-keep class android.support.v4.util.**
